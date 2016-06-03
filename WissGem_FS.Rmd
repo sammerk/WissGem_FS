@@ -1,0 +1,145 @@
+---
+title: "FAQ"
+subtitle: "Fragen und Antworten zu Unterrichtsbeobachtungen und Datenarchivierung"
+author: "Samuel Merk, Thorsten Bohl"
+date: "09.06.2016"
+output: 
+  ioslides_presentation:
+    css: my.css
+    incremental: yes
+    logo: logo.png
+    smaller: no
+    widescreen: yes
+bibliography: library.bib
+csl: apa.csl
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+# Ergebnisse und Ergebnissqualität der Unterrichtsbeobachtung TP1 
+
+## Design
+Incomplete Connected Rater Design in 20 LG an den 10 TP1 Schulen. 
+Minimalbeispiel:
+
+|          | Raterin 1 | Raterin 2 | Raterin 3 |
+|:--------:|:---------:|:---------:|:---------:|
+| Stunde 1 |     x     |     x     |           |
+| Stunde 2 |           |     x     |     x     |
+| Stunde 3 |     x     |           |           |
+| Stunde 4 |           |     x     |           |
+| Stunde 5 |           |           |     x     |
+
+
+## Instrument
+Instrument aus der Schulinspektion Hamburg. Es nimmt Eindiemsionalität (und damit Hierarchität) von Unterrichtsqualität an. Raschmodellierung erlaubt Post-Hoc Stufung, die inhaltlich interpretiert werden kann.  
+  
+  
+```{r, out.width = 700, fig.retina = NULL}
+knitr::include_graphics("Stufen.pdf")
+```
+
+
+## Multifacetten-Rasch-Modellierung
+Hauptvorteile  
+
+* Kann unvollständige Daten modellieren
+* Kann Ratereffekte (Milde/Strenge) kontrollieren, sogar Rater-Item-Interaktionen
+
+## Hauptergebniss I
+Unter Annahme gleicher durchschnittlicher Raterstrenge in WissGem und HH ist die Verteilung der Unterrichtsqualität sehr ähnlich.  
+  
+```{r, out.width = 700, fig.retina = NULL}
+knitr::include_graphics("Verteilung.pdf")
+```
+
+## Hauptergebnis II
+```{r, out.width = 700, fig.retina = NULL}
+knitr::include_graphics("Stufen_line.pdf")
+```
+
+# Rückfragen
+
+## Dimensionalität
+Kann empirisch untersucht werden:  
+
+- Explorativ:  
+    * klassische Methoden der explorativen Faktorenanalyse (PCA, MLEFA, PFA, ...)
+    * Exploratory Structural Equation Modelling [@Asparouhov2009]
+- Konfirmatorisch:
+    * Im Rahmen der Multifacetten Rasch Modellierung [@Eckes2011]
+    * als klassische CFA
+    
+## Kriteriumsvalidität allgemein  
+- Hamburger Bogen prädiziert substantielle Anteile des Leistungszuwachses [@Pietsch2010]
+
+## Kriteriumsvalidität WissGem
+- Die Itemschwierigkeitsparameter der Stichproben (HH und WissGem) korrelieren sehr hoch
+- Unterrichtsqualitätsratings und Unterrichtsqualität in TP2 korrelieren substantiell
+
+## Itemschwierigkeitparameter
+```{r, message=F, warning=F, echo=F, fig.align='center'}
+load("itemitemplotdata.RData")
+library(ggplot2)
+library(plotly)
+ggplotly(
+  ggplot(itemitemplotdata, aes(pmhh, pmbawue, label = wortlaut)) + geom_point() + stat_smooth(method = "lm") + 
+    xlab("Parameter aus Hamburg") + 
+    ylab("Parameter aus WissGem") 
+)
+```
+
+## Qualität der Rohdaten und des Erhebungsplanes
+- Alle an TP1 beteiligten Personen wissen, dass die Metadatenqualität __suboptimal__ war  
+    * Beispiel: Auf jedem Bogen musste die ID doppelt eingetragen werden; nur 70% Übereinstimmungen
+- __Heißt das nicht, dass auch die Unterrichtsqualitätsratings schlechte Reliabilität aufweisen?__
+    * Vieles spricht dagegen:
+        * theoretisch: Raten eines latenten Konstrukts unterliegt anderen kognitiven Mechanismes als das generieren einer ID
+        * empirisch: Hinreichende Intra- und Interraterkonsistenz, Parameterkorrelatation, Korrelation mit TP2
+
+# Datenarchivierung
+
+## Motivation für die Archivierung
+- Forschungsethos
+- EU-Richtlinie 2020
+- Verpflichtung laut Richtlinien der DGfE, DGPs, AERA, APA, Berliner Erklärung, etc. [vgl., @APA2010]
+- Sicherstellen des Potentials __projektinterner__ oder __projektexterner__ Sekundäranalysen. Diese dienen
+    * dem eigenen Impact
+    * dem Impact der Disziplin
+- Nachkommen der Verantwortung staatlich finanzierter Forschung
+- Open Science Ideal
+
+## Vorgehen bei der Archivierung
+- logische und physische Redundanz
+- Insellösung
+- Pseudonymisierung soweit möglich
+- Erneute Prüfung der Pseudonymisierung vor Ausgabe
+- Vetragliche Verpflichtung zur Verwiegenheit bei Ausgabe
+
+## FAQ {.nullachtem}
+- Ist das Standard?
+    * Es sollte Standard sein. Bemühungen zur Erreichung dieses Standards sind erkennbar auftrebend (FDZ, WISDOM, ZPID, QBiQ, ICPSR, Round Table des RatSWD, d-Index, arXiv, OSF, figshare)
+- "Warum kriegen Dritte TP2-Daten, wir aber projektintern nicht?"
+    * _Jede/r WissenschaftlerIn_ darf TP2-Daten reanalysieren. Um die Reidentifizierbarkeit von TP2-Daten (deren Pseudonymität zugesagt wurde) maximal zu erschweren, bekommen TP1-Mitarbeiterinnen aggregierte Datensätze __fertige Modellschätzungen__ (m.E. starker Service), so dass sie __auf nicht zu verzichten brauchen__ ohne dafür Zeit o.A. investieren zu müssen.
+- Macht das Arbeit?
+    * Ja, viel sogar.
+- Lohnt sich diese?
+    * Ja, sehr sogar - wenn sie auch nicht unbedingt den eigenen Interessen dient.
+- Weitere Fragen?
+
+## "Wer Open Science von anderen fordert, sollte sie auch selbst betreiben" (C. Spannagel)  
+Unter https://github.com/sammerk/WissGem_FS finden Sie Daten und Syntax, welche diese Folien generieren.
+  
+  
+```{r, fig.height=3}
+library(qrcode)
+qrcode_gen('https://github.com/sammerk/WissGem_FS')
+```
+
+
+# Vielen Dank!
+
+## Literatur {.nullfuenfem}
