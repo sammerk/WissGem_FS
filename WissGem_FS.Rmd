@@ -35,7 +35,7 @@ Minimalbeispiel:
 
 
 ## Instrument
-Instrument aus der Schulinspektion Hamburg. Es nimmt Eindiemsionalität (und damit Hierarchität) von Unterrichtsqualität an. Raschmodellierung erlaubt Post-Hoc Stufung, die inhaltlich interpretiert werden kann.  
+Instrument aus der Schulinspektion Hamburg. Es nimmt Eindimsionalität (und damit Hierarchität) von Unterrichtsqualität an. Raschmodellierung erlaubt Post-Hoc Stufung, die inhaltlich interpretiert werden kann.  
   
   
 ```{r, out.width = 700, fig.retina = NULL}
@@ -104,13 +104,14 @@ ggplotly(
 
 ## Motivation für die Archivierung
 - Forschungsethos
-- EU-Richtlinie 2020
-- Verpflichtung laut Richtlinien der DGfE, DGPs, AERA, APA, Berliner Erklärung, etc. [vgl., @APA2010]
 - Sicherstellen des Potentials __projektinterner__ oder __projektexterner__ Sekundäranalysen. Diese dienen
     * dem eigenen Impact
     * dem Impact der Disziplin
 - Nachkommen der Verantwortung staatlich finanzierter Forschung
 - Open Science Ideal
+- EU-Richtlinie 2020
+- Verpflichtung laut Richtlinien der DGfE, DGPs, AERA, APA, Berliner Erklärung, etc. [vgl., @APA2010]
+
 
 ## Vorgehen bei der Archivierung
 - logische und physische Redundanz
